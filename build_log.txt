@@ -1,0 +1,56 @@
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:compileKotlin UP-TO-DATE
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:pluginDescriptors UP-TO-DATE
+> Task :build-logic:processResources UP-TO-DATE
+> Task :build-logic:classes UP-TO-DATE
+> Task :build-logic:jar UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :assemble UP-TO-DATE
+> Task :deprecated-configurate3:compileJava NO-SOURCE
+> Task :deprecated-configurate3:processResources NO-SOURCE
+> Task :deprecated-configurate3:classes UP-TO-DATE
+> Task :deprecated-configurate3:jar UP-TO-DATE
+> Task :deprecated-configurate3:assemble UP-TO-DATE
+> Task :velocity-api:compileJava UP-TO-DATE
+> Task :velocity-api:processResources UP-TO-DATE
+> Task :velocity-api:classes UP-TO-DATE
+> Task :velocity-api:jar UP-TO-DATE
+> Task :velocity-api:javadoc UP-TO-DATE
+> Task :velocity-api:javadocJar UP-TO-DATE
+> Task :velocity-api:sourcesJar UP-TO-DATE
+> Task :velocity-api:assemble UP-TO-DATE
+> Task :velocity-native:compileJava UP-TO-DATE
+> Task :velocity-native:processResources UP-TO-DATE
+> Task :velocity-native:classes UP-TO-DATE
+> Task :velocity-native:jar UP-TO-DATE
+> Task :velocity-native:assemble UP-TO-DATE
+> Task :velocity-proxy-log4j2-plugin:compileJava UP-TO-DATE
+> Task :velocity-proxy:compileJava UP-TO-DATE
+> Task :velocity-proxy:processResources UP-TO-DATE
+> Task :velocity-proxy:classes UP-TO-DATE
+> Task :velocity-proxy:jar UP-TO-DATE
+> Task :velocity-proxy-log4j2-plugin:processResources NO-SOURCE
+> Task :velocity-proxy-log4j2-plugin:classes UP-TO-DATE
+> Task :velocity-proxy-log4j2-plugin:jar UP-TO-DATE
+> Task :velocity-proxy:startScripts UP-TO-DATE
+> Task :velocity-proxy:distTar UP-TO-DATE
+> Task :velocity-proxy:distZip UP-TO-DATE
+> Task :deprecated-configurate3:shadowJar UP-TO-DATE
+> Task :velocity-proxy:shadowJar
+> Task :velocity-proxy:startShadowScripts
+> Task :velocity-proxy:shadowDistTar
+> Task :velocity-proxy:shadowDistZip
+> Task :velocity-proxy:assemble
+> Task :velocity-proxy-log4j2-plugin:assemble UP-TO-DATE
+
+BUILD SUCCESSFUL in 15s
+33 actionable tasks: 4 executed, 29 up-to-date
