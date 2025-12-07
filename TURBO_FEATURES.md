@@ -15,7 +15,7 @@ This document details all modifications, improvements, and features added to **T
 ### 🔒 Cryptographic Security
 *   **RSA 2048-bit**: Increased the size of server-generated encryption keys from 1024 to **2048 bits**, significantly improving session security.
 
----
+
 
 ## 🛡️ Native Anti-Bot System (The Sentinel Update)
 
@@ -34,7 +34,7 @@ TurboProxy includes an application-layer protection system (L7) integrated direc
 *   **Blacklist**: Immediate and persistent blocking of detected malicious IPs.
 *   **Whitelist**: Exemption from checks for trusted IPs.
 
----
+
 
 ## 📊 Advanced Observability
 
@@ -51,7 +51,7 @@ Without external plugins, the proxy exposes:
 *   `jvm_memory_heap_used`: RAM usage of the Java process (bytes).
 *   `antibot_blocked_connections`: Cumulative counter of connections rejected by the Anti-Bot system.
 
----
+
 
 ## ⚙️ Configuration & User Experience
 
@@ -73,7 +73,7 @@ port = 30069
 *   **TurboProxy Brand**: All startup messages, logs, and headers have been updated.
 *   **Build System**: Fixes in GitHub Actions to ensure reproducible builds on Windows and Linux.
 
----
+
 
 ## 📝 Version Summary
 

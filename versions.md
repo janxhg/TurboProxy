@@ -46,5 +46,4 @@
 *   **Fixes**: Solved initial dependency and shading issues.
 *   **Compression**: Added native LZ4 support for faster packet compression.
 
----
 *Based on Velocity 3.4.0-SNAPSHOT*
