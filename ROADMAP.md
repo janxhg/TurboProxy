@@ -25,6 +25,6 @@ Strategic plan for the evolution of TurboProxy into a high-performance, secure, 
 
 ## 4. 📊 Advanced Observability
 **Goal**: Professional monitoring.
-- [ ] Expose Netty EventLoop metrics (lag, task queue size).
-- [ ] Prometheus endpoint (optional plugin or internal module).
-- [ ] Packet compression stats (LZ4 efficiency).
+- [x] Expose Netty EventLoop metrics (lag, task queue size).
+- [x] Prometheus endpoint (built-in module).
+- [x] Packet compression stats (LZ4 efficiency).
