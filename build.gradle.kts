@@ -1,14 +1,19 @@
 plugins {
     `java-library`
-    id("velocity-checkstyle") apply false
-    id("velocity-spotless") apply false
+    id("turbo-checkstyle") apply false
+    id("turbo-spotless") apply false
 }
 
 subprojects {
     apply<JavaLibraryPlugin>()
 
-    apply(plugin = "velocity-checkstyle")
-    apply(plugin = "velocity-spotless")
+    // We do not publish the test plugins
+    if (path.startsWith(":turbo-test-plugin")) {
+        return@subprojects
+    }
+
+    apply(plugin = "turbo-checkstyle")
+    apply(plugin = "turbo-spotless")
 
     java {
         toolchain {

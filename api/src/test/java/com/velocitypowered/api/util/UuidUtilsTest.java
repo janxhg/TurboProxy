@@ -5,7 +5,7 @@
  * reference the LICENSE file in the api top-level directory.
  */
 
-package com.velocitypowered.api.util;
+package com.turbopowered.api.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

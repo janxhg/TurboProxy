@@ -1,6 +1,6 @@
 plugins {
     `java-library`
-    id("velocity-publish")
+    id("turbo-publish")
 }
 
 dependencies {

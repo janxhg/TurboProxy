@@ -5,10 +5,10 @@
  * reference the LICENSE file in the api top-level directory.
  */
 
-package com.velocitypowered.api.proxy.messages;
+package com.turbopowered.api.proxy.messages;
 
-import static com.velocitypowered.api.proxy.messages.MinecraftChannelIdentifier.create;
-import static com.velocitypowered.api.proxy.messages.MinecraftChannelIdentifier.from;
+import static com.turbopowered.api.proxy.messages.MinecraftChannelIdentifier.create;
+import static com.turbopowered.api.proxy.messages.MinecraftChannelIdentifier.from;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

@@ -24,7 +24,7 @@
         <LoggerNamePatternSelector
           defaultPattern="%highlightError{[%d{HH:mm:ss} %level] [%logger]: %msg%n%xEx}">
           <!-- Velocity doesn't need a prefix -->
-          <PatternMatch key="com.velocitypowered."
+          <PatternMatch key="com.turbopowered."
             pattern="%highlightError{[%d{HH:mm:ss} %level]: %msg%n%xEx}"/>
         </LoggerNamePatternSelector>
       </PatternLayout>

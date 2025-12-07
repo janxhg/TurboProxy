@@ -5,12 +5,12 @@
  * reference the LICENSE file in the api top-level directory.
  */
 
-package com.velocitypowered.api.plugin.ap;
+package com.turbopowered.api.plugin.ap;
 
 import com.google.auto.service.AutoService;
 import com.google.gson.Gson;
-import com.velocitypowered.api.plugin.Dependency;
-import com.velocitypowered.api.plugin.Plugin;
+import com.turbopowered.api.plugin.Dependency;
+import com.turbopowered.api.plugin.Plugin;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -33,7 +33,7 @@ import javax.tools.StandardLocation;
  * Annotation processor for Velocity.
  */
 @AutoService(Processor.class)
-@SupportedAnnotationTypes({"com.velocitypowered.api.plugin.Plugin"})
+@SupportedAnnotationTypes({"com.turbopowered.api.plugin.Plugin"})
 public class PluginAnnotationProcessor extends AbstractProcessor {
 
   private ProcessingEnvironment environment;

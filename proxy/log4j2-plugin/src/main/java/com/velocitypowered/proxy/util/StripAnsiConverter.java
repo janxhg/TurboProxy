@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.velocitypowered.proxy.util;
+package com.turbopowered.proxy.util;
 
 import java.util.List;
 import java.util.regex.Pattern;

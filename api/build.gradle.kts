@@ -1,7 +1,7 @@
 plugins {
     `java-library`
     `maven-publish`
-    id("velocity-publish")
+    id("turbo-publish")
 }
 
 java {

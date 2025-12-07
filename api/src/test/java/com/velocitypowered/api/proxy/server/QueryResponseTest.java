@@ -5,12 +5,12 @@
  * reference the LICENSE file in the api top-level directory.
  */
 
-package com.velocitypowered.api.proxy.server;
+package com.turbopowered.api.proxy.server;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.google.common.collect.ImmutableList;
-import com.velocitypowered.api.proxy.server.QueryResponse.PluginInformation;
+import com.turbopowered.api.proxy.server.QueryResponse.PluginInformation;
 import org.junit.jupiter.api.Test;
 
 class QueryResponseTest {

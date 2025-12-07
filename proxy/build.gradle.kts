@@ -3,14 +3,14 @@ import io.papermc.fill.model.BuildChannel
 
 plugins {
     application
-    id("velocity-init-manifest")
+    id("turbo-init-manifest")
     alias(libs.plugins.shadow)
     alias(libs.plugins.fill)
 }
 
 application {
-    mainClass.set("com.velocitypowered.proxy.Velocity")
-    applicationDefaultJvmArgs += listOf("-Dvelocity.packet-decode-logging=true");
+    mainClass.set("com.turbopowered.proxy.Velocity")
+    applicationDefaultJvmArgs += listOf("-Dturbo.packet-decode-logging=true");
 }
 
 tasks {
@@ -102,7 +102,7 @@ tasks {
     runShadow {
         workingDir = file("run").also(File::mkdirs)
         standardInput = System.`in`
-        jvmArgs("-Dvelocity.packet-decode-logging=true")
+        jvmArgs("-Dturbo.packet-decode-logging=true")
     }
     named<JavaExec>("run") {
         workingDir = file("run").also(File::mkdirs)
@@ -129,9 +129,9 @@ fill {
 }
 
 dependencies {
-    implementation(project(":velocity-api"))
-    implementation(project(":velocity-native"))
-    implementation(project(":velocity-proxy-log4j2-plugin"))
+    implementation(project(":turbo-api"))
+    implementation(project(":turbo-native"))
+    implementation(project(":turbo-proxy-log4j2-plugin"))
 
     implementation(libs.bundles.log4j)
     implementation(libs.kyori.ansi)

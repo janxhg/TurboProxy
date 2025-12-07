@@ -22,22 +22,29 @@ plugins {
 
 rootProject.name = "turboproxy"
 
-sequenceOf(
-    "api",
-    "native",
-    "proxy",
-).forEach {
-    val project = ":velocity-$it"
-    include(project)
-    project(project).projectDir = file(it)
+include("turbo-api")
+include("turbo-native")
+include("turbo-proxy")
+include("turbo-proxy-log4j2-plugin")
+
+// Deprecated: Will be removed in Velocity Polymer
+include("deprecated-configurate3")
+
+project(":turbo-api").projectDir = file("api")
+project(":turbo-native").projectDir = file("native")
+project(":turbo-proxy").projectDir = file("proxy")
+project(":turbo-proxy-log4j2-plugin").projectDir = file("proxy/log4j2-plugin")
+
+// Deprecated: Will be removed in Velocity Polymer
+project(":deprecated-configurate3").projectDir = file("proxy/deprecated/configurate3")
+
+// Check for and include any test plugins
+file("proxy/src/test/resources/plugins").listFiles()?.forEach {
+    if (it.isDirectory && File(it, "build.gradle.kts").exists()) {
+        val name = "turbo-test-plugin-${it.name}"
+        include(name)
+        project(":$name").projectDir = it
+    }
 }
 
-// Include Configurate 3
-val deprecatedConfigurateModule = ":deprecated-configurate3"
-include(deprecatedConfigurateModule)
-project(deprecatedConfigurateModule).projectDir = file("proxy/deprecated/configurate3")
-
-// Log4J2 plugin
-val log4j2ProxyPlugin = ":velocity-proxy-log4j2-plugin"
-include(log4j2ProxyPlugin)
-project(log4j2ProxyPlugin).projectDir = file("proxy/log4j2-plugin")
+val log4j2ProxyPlugin = ":turbo-proxy-log4j2-plugin"
