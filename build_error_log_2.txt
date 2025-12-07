@@ -1,0 +1,155 @@
+> Task :build-logic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:compileKotlin UP-TO-DATE
+> Task :build-logic:compileJava NO-SOURCE
+> Task :build-logic:pluginDescriptors UP-TO-DATE
+> Task :build-logic:processResources UP-TO-DATE
+> Task :build-logic:classes UP-TO-DATE
+> Task :build-logic:jar UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :jar UP-TO-DATE
+> Task :assemble UP-TO-DATE
+> Task :deprecated-configurate3:compileJava NO-SOURCE
+> Task :deprecated-configurate3:processResources NO-SOURCE
+> Task :deprecated-configurate3:classes UP-TO-DATE
+> Task :deprecated-configurate3:jar UP-TO-DATE
+> Task :deprecated-configurate3:assemble UP-TO-DATE
+> Task :turbo-api:compileJava UP-TO-DATE
+> Task :turbo-api:processResources UP-TO-DATE
+> Task :turbo-api:classes UP-TO-DATE
+> Task :turbo-api:jar UP-TO-DATE
+> Task :turbo-api:javadoc UP-TO-DATE
+> Task :turbo-api:javadocJar UP-TO-DATE
+> Task :turbo-api:sourcesJar UP-TO-DATE
+> Task :turbo-api:assemble UP-TO-DATE
+> Task :turbo-native:compileJava UP-TO-DATE
+> Task :turbo-native:processResources UP-TO-DATE
+> Task :turbo-native:classes UP-TO-DATE
+> Task :turbo-native:jar UP-TO-DATE
+> Task :turbo-native:assemble UP-TO-DATE
+> Task :turbo-proxy-log4j2-plugin:compileJava UP-TO-DATE
+
+> Task :turbo-proxy:compileJava FAILED
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:23: error: cannot find symbol
+import io.netty.channel.IoHandlerFactory;
+                       ^
+  symbol:   class IoHandlerFactory
+  location: package io.netty.channel
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:24: error: cannot find symbol
+import io.netty.channel.MultiThreadIoEventLoopGroup;
+                       ^
+  symbol:   class MultiThreadIoEventLoopGroup
+  location: package io.netty.channel
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:27: error: cannot find symbol
+import io.netty.channel.epoll.EpollIoHandler;
+                             ^
+  symbol:   class EpollIoHandler
+  location: package io.netty.channel.epoll
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:32: error: cannot find symbol
+import io.netty.channel.kqueue.KQueueIoHandler;
+                              ^
+  symbol:   class KQueueIoHandler
+  location: package io.netty.channel.kqueue
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:35: error: cannot find symbol
+import io.netty.channel.nio.NioIoHandler;
+                           ^
+  symbol:   class NioIoHandler
+  location: package io.netty.channel.nio
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:42: error: package io.netty.channel.uring does not exist
+import io.netty.channel.uring.IoUring;
+                             ^
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:43: error: package io.netty.channel.uring does not exist
+import io.netty.channel.uring.IoUringDatagramChannel;
+                             ^
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:44: error: package io.netty.channel.uring does not exist
+import io.netty.channel.uring.IoUringIoHandler;
+                             ^
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:45: error: package io.netty.channel.uring does not exist
+import io.netty.channel.uring.IoUringServerSocketChannel;
+                             ^
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:46: error: package io.netty.channel.uring does not exist
+import io.netty.channel.uring.IoUringSocketChannel;
+                             ^
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:75: error: cannot find symbol
+  final Supplier<IoHandlerFactory> ioHandlerFactorySupplier;
+                 ^
+  symbol:   class IoHandlerFactory
+  location: class TransportType
+D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:81: error: cannot find symbol
+      final Supplier<IoHandlerFactory> ioHandlerFactorySupplier) {
+                     ^
+  symbol:   class IoHandlerFactory
+  location: class TransportType
+12 errors
+
+[Incubating] Problems report is available at: file:///D:/ASAS/minecraft_server/papermc_modificado/TurboProxy/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':turbo-proxy:compileJava'.
+> Compilation failed; see the compiler output below.
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:23: error: cannot find symbol
+  import io.netty.channel.IoHandlerFactory;
+                         ^
+    symbol:   class IoHandlerFactory
+    location: package io.netty.channel
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:24: error: cannot find symbol
+  import io.netty.channel.MultiThreadIoEventLoopGroup;
+                         ^
+    symbol:   class MultiThreadIoEventLoopGroup
+    location: package io.netty.channel
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:27: error: cannot find symbol
+  import io.netty.channel.epoll.EpollIoHandler;
+                               ^
+    symbol:   class EpollIoHandler
+    location: package io.netty.channel.epoll
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:32: error: cannot find symbol
+  import io.netty.channel.kqueue.KQueueIoHandler;
+                                ^
+    symbol:   class KQueueIoHandler
+    location: package io.netty.channel.kqueue
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:35: error: cannot find symbol
+  import io.netty.channel.nio.NioIoHandler;
+                             ^
+    symbol:   class NioIoHandler
+    location: package io.netty.channel.nio
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:75: error: cannot find symbol
+    final Supplier<IoHandlerFactory> ioHandlerFactorySupplier;
+                   ^
+    symbol:   class IoHandlerFactory
+    location: class TransportType
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:81: error: cannot find symbol
+        final Supplier<IoHandlerFactory> ioHandlerFactorySupplier) {
+                       ^
+    symbol:   class IoHandlerFactory
+    location: class TransportType
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:42: error: package io.netty.channel.uring does not exist
+  import io.netty.channel.uring.IoUring;
+                               ^
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:43: error: package io.netty.channel.uring does not exist
+  import io.netty.channel.uring.IoUringDatagramChannel;
+                               ^
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:44: error: package io.netty.channel.uring does not exist
+  import io.netty.channel.uring.IoUringIoHandler;
+                               ^
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:45: error: package io.netty.channel.uring does not exist
+  import io.netty.channel.uring.IoUringServerSocketChannel;
+                               ^
+  D:\ASAS\minecraft_server\papermc_modificado\TurboProxy\proxy\src\main\java\com\turbopowered\proxy\network\TransportType.java:46: error: package io.netty.channel.uring does not exist
+  import io.netty.channel.uring.IoUringSocketChannel;
+                               ^
+  12 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+BUILD FAILED in 3s
+22 actionable tasks: 1 executed, 21 up-to-date

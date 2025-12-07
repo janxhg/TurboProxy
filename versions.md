@@ -1,18 +1,15 @@
-# Velocity Changelog
+# TurboProxy Version History
 
-## v1.0.0 - LZ4 Compression Support
+## 1.0.0 (2025-12-07)
+**"The Rebirth"**
 
-### Summary
-Implemented a custom compression factory to use LZ4 for backend server connections, optimizing throughput and latency for the internal network.
+### 🚀 Initial Release
+*   **Total Rebrand**: Forked from Velocity 3.4.0-SNAPSHOT.
+*   **Package Rename**: Migrated all code to `com.turbopowered`.
+*   **Configuration**: Introduced `turbo.toml` configuration system.
+*   **Build System**: Complete overhaul of Gradle build logic for TurboProxy.
+*   **Fixes**: Solved initial dependency and shading issues.
+*   **Compression**: Added native LZ4 support for faster packet compression.
 
-### Technical Details
-- **Core**: Added `Lz4VelocityCompressor` using `lz4-java` library (Direct ByteBuffers).
-- **Injection**: Overloaded `MinecraftConnection.setCompressionThreshold` to accept custom compressor factories.
-- **Session Handling**: Updated `LoginSessionHandler` to intercept compression packets and inject the LZ4 factory for backend connections.
-
-### Installation & Config
-- **Build**: `gradle shadowJar`
-- **Config (`velocity.toml`)**:
-  - `online-mode = false` (for this dev environment)
-  - `player-info-forwarding-mode = "modern"`
-  - `forwarding-secret-file` configured.
+---
+*Based on Velocity 3.4.0-SNAPSHOT*

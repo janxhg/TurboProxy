@@ -256,7 +256,7 @@ public class VelocityServer implements ProxyServer, ForwardingAudience {
     // most serious.
     //
     // If you are using Minecraft in a security-sensitive application, *I don't know what to say.*
-    serverKeyPair = EncryptionUtils.createRsaKeyPair(1024);
+    serverKeyPair = EncryptionUtils.createRsaKeyPair(2048);
 
     cm.logChannelInformation();
 

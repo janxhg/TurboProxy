@@ -1,32 +1,30 @@
-# TurboProxy 🚀
+# TurboProxy
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/janxhg/TurboProxy/gradle.yml)](https://github.com/janxhg/TurboProxy)
+**TurboProxy** is a next-generation Minecraft proxy, built for extreme performance, security, and modern compatibility. It is a high-performance fork of [Velocity](https://github.com/PaperMC/Velocity).
 
-**TurboProxy** is a high-performance Minecraft server proxy based on [Velocity](https://velocitypowered.com). It is designed to work seamlessly with **TurboMC**, providing enhanced features like native LZ4 compression and optimized connection handling.
+## 🚀 Key Features
 
-## Key Features
+*   **Java 21 Native**: Built for the latest JVM runtime, leveraging ZGC for sub-millisecond pauses.
+*   **Netty 4.2 Engine**: Powered by the bleeding-edge Netty 4.2 networking stack.
+*   **io_uring Support**: Native Linux integration using `io_uring` for massive connection throughput.
+*   **Enhanced Security**: 2048-bit RSA encryption keys by default.
+*   **Modern Protocol**: Support for Minecraft 1.7.2 through 1.21.x.
 
-*   **⚡ Native LZ4 Compression**: Optimized specifically for **TurboMC**, reducing CPU usage and latency.
-*   **🛡️ Enhanced Security**: Improved handshake validation and bot mitigation.
-*   **🚅 High Scalability**: Built on Velocity's asynchronous architecture to handle thousands of concurrent players.
+## 📥 Getting Started
 
-## Building
-
-TurboProxy is built with [Gradle](https://gradle.org).
-
-```bash
-./gradlew build
-```
-
-The output JAR will be located in `proxy/build/libs/`.
-
-## Running
-
-1.  Download the latest `TurboProxy` JAR.
-2.  Run it with Java 21+:
+1.  Download the latest release from the [Releases](https://github.com/janxhg/TurboProxy/releases) page.
+2.  Run with Java 21+:
     ```bash
-    java -Xms1G -Xmx1G -jar turboproxy.jar
+    java -Xms1G -Xmx1G -XX:+UseZGC -jar turbo-proxy-1.1.0-all.jar
     ```
 
-## License
-TurboProxy is licensed under the GPLv3 license.
+## 🛠️ Building from Source
+
+```bash
+./gradlew :turbo-proxy:shadowJar
+```
+
+## ⚖️ License
+
+TurboProxy is licensed under the GPLv3. See [LICENSE](LICENSE) for details.
+Based on Velocity, Copyright (C) 2018-2023 Velocity Contributors.
