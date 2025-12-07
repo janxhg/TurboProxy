@@ -1,66 +1,66 @@
 # 🚀 TurboProxy Full Feature List & Changelog
 
-Este documento detalla todas las modificaciones, mejoras y características agregadas a **TurboProxy** (Fork de Velocity) hasta la versión 1.2.0.
+This document details all modifications, improvements, and features added to **TurboProxy** (Fork of Velocity) up to version 1.2.0.
 
-## 🛠️ Núcleo y Rendimiento (Core & Performance)
+## 🛠️ Core & Performance
 
-### ⚡ Motor de Red Optimizado
-*   **Netty 4.1.107.Final**: Actualización del motor de red asíncrono a una versión más reciente para mejorar el throughput y reducir la latencia.
-*   **Soporte IO_URING**: Integración nativa de `io_uring` para sistemas Linux, permitiendo una gestión de I/O de red mucho más eficiente que el estándar `epoll`.
-*   **Compresión Nativa (LZ4)**: Implementación de librerías nativas para la compresión de paquetes (`Lz4VelocityCompressor`), reduciendo el uso de CPU durante la transferencia de datos.
+### ⚡ Optimized Network Engine
+*   **Netty 4.1.107.Final**: Updated the asynchronous network engine to a newer version to improve throughput and reduce latency.
+*   **IO_URING Support**: Native integration of `io_uring` for Linux systems, allowing for significantly more efficient network I/O compared to standard `epoll`.
+*   **Native Compression (LZ4)**: Implementation of native libraries for packet compression (`Lz4VelocityCompressor`), reducing CPU usage during data transfer.
 
-### ☕ Plataforma Java
-*   **Java 21 Nativo**: El proyecto ha sido migrado para compilar y ejecutarse sobre **JDK 21**, aprovechando las últimas optimizaciones de la JVM y el Garbage Collector (ZGC/G1 de nueva generación).
+### ☕ Java Platform
+*   **Native Java 21**: The project has been migrated to compile and run on **JDK 21**, leveraging the latest JVM optimizations and the Garbage Collector (ZGC/G1 next-gen).
 
-### 🔒 Seguridad Criptográfica
-*   **RSA 2048-bit**: Se incrementó el tamaño de las claves de encriptación generadas por el servidor de 1024 a **2048 bits**, mejorando significativamente la seguridad de la sesión.
-
----
-
-## 🛡️ Sistema Anti-Bot Nativo (The Sentinel Update)
-
-TurboProxy incluye un sistema de protección de capa de aplicación (L7) integrado directamente en el núcleo, sin necesidad de plugins externos.
-
-### 🚧 Filtrado de Conexiones
-*   **AntiBotService**: Un nuevo servicio interno que intercepta conexiones antes del handshake de Minecraft.
-*   **Challenge Mode (Modo Desafío)**:
-    *   Mecanismo inteligente de "Greylist".
-    *   La primera conexión de una IP desconocida es rechazada instantáneamente (Drop).
-    *   Si la IP reintenta demasiado rápido (ataque agresivo), sigue bloqueada.
-    *   Si reintenta en un intervalo humano (ej. 3-5 segundos), se le permite el paso y se añade a una whitelist temporal.
-*   **Connection Throttling**: Limita el número máximo de conexiones simultáneas permitidas desde una misma dirección IP.
-
-### 📋 Listas de Control
-*   **Blacklist**: Bloqueo inmediato y persistente de IPs maliciosas detectadas.
-*   **Whitelist**: Exención de chequeos para IPs de confianza.
+### 🔒 Cryptographic Security
+*   **RSA 2048-bit**: Increased the size of server-generated encryption keys from 1024 to **2048 bits**, significantly improving session security.
 
 ---
 
-## 📊 Observabilidad Avanzada (Advanced Observability)
+## 🛡️ Native Anti-Bot System (The Sentinel Update)
 
-Infraestructura de monitoreo profesional compatible con **Prometheus**.
+TurboProxy includes an application-layer protection system (L7) integrated directly into the core, without the need for external plugins.
 
-### 📡 Endpoint HTTP Nativo
-*   El proxy levanta un servidor HTTP ligero en un puerto dedicado (Default: `30069`).
-*   Ruta: `/metrics`.
-*   Formato: Prometheus Text Format (compatible con Grafana).
+### 🚧 Connection Filtering
+*   **AntiBotService**: A new internal service that intercepts connections before the Minecraft handshake.
+*   **Challenge Mode**:
+    *   Intelligent "Greylist" mechanism.
+    *   The first connection from an unknown IP is rejected instantly (Drop).
+    *   If the IP retries too quickly (aggressive attack), it remains blocked.
+    *   If it retries within a human interval (e.g., 3-5 seconds), it is allowed through and added to a temporary whitelist.
+*   **Connection Throttling**: Limits the maximum number of simultaneous connections allowed from a single IP address.
 
-### 📈 Métricas en Tiempo Real
-Sin necesidad de plugins, el proxy expone:
-*   `proxy_players_online`: Cantidad de jugadores conectados en tiempo real.
-*   `jvm_memory_heap_used`: Uso de memoria RAM del proceso Java (bytes).
-*   `antibot_blocked_connections`: Contador acumulativo de conexiones rechazadas por el sistema Anti-Bot.
+### 📋 Control Lists
+*   **Blacklist**: Immediate and persistent blocking of detected malicious IPs.
+*   **Whitelist**: Exemption from checks for trusted IPs.
 
 ---
 
-## ⚙️ Configuración y Experiencia de Usuario
+## 📊 Advanced Observability
+
+Professional monitoring infrastructure compatible with **Prometheus**.
+
+### 📡 Native HTTP Endpoint
+*   The proxy starts a lightweight HTTP server on a dedicated port (Default: `30069`).
+*   Route: `/metrics`.
+*   Format: Prometheus Text Format (compatible with Grafana).
+
+### 📈 Real-Time Metrics
+Without external plugins, the proxy exposes:
+*   `proxy_players_online`: Number of players connected in real-time.
+*   `jvm_memory_heap_used`: RAM usage of the Java process (bytes).
+*   `antibot_blocked_connections`: Cumulative counter of connections rejected by the Anti-Bot system.
+
+---
+
+## ⚙️ Configuration & User Experience
 
 ### 🔧 `turbo.toml`
-Una configuración simplificada y potente que reemplaza a la antigua configuración, con nuevas secciones dedicadas:
+A simplified and powerful configuration that replaces the old configuration, with new dedicated sections:
 ```toml
 [antibot]
 enabled = true
-# Configuración granular del desafío
+# Granular challenge configuration
 challengeEnabled = true
 maxConnectionsPerIp = 5
 
@@ -69,16 +69,16 @@ enabled = true
 port = 30069
 ```
 
-### 🏷️ Branding y CI/CD
-*   **Marca TurboProxy**: Todos los mensajes de inicio, logs y headers han sido actualizados.
-*   **Build System**: Correcciones en GitHub Actions para asegurar builds reproducibles en Windows y Linux.
+### 🏷️ Branding & CI/CD
+*   **TurboProxy Brand**: All startup messages, logs, and headers have been updated.
+*   **Build System**: Fixes in GitHub Actions to ensure reproducible builds on Windows and Linux.
 
 ---
 
-## 📝 Resumen de Versiones
+## 📝 Version Summary
 
-| Versión | Nombre Clave | Cambios Principales |
+| Version | Codename | Main Changes |
 | :--- | :--- | :--- |
 | **1.2.0** | *The Sentinel Update* | Native Anti-Bot, Advanced Observability, Metrics Endpoint. |
 | **1.1.0** | *Performance Upgrade* | Java 21, Netty Updates, IO_URING, Compression fixes. |
-| **1.0.0** | *Genesis* | Fork inicial de Velocity, limpieza de código legacy. |
+| **1.0.0** | *Genesis* | Initial fork of Velocity, legacy code cleanup. |
