@@ -185,7 +185,22 @@ enabled = false
 port = 25565
 
 # This is the map name that is reported to the query services.
-map = "Velocity"
+map = "TurboProxy"
 
 # Whether plugins should be shown in query response by default or not
 show-plugins = false
+
+[antibot]
+  enabled = false
+  max-connections-per-ip = 5
+  whitelist = []
+  blacklist = []
+  challenge-enabled = false
+  challenge-cooldown = 1000
+  challenge-repeat = 30000
+
+[observability]
+  enabled = false
+  port = 30069
+  path = "/metrics"
+

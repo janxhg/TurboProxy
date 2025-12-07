@@ -39,6 +39,7 @@ import com.turbopowered.api.proxy.server.ServerInfo;
 import com.turbopowered.api.util.Favicon;
 import com.turbopowered.api.util.GameProfile;
 import com.turbopowered.api.util.ProxyVersion;
+import com.turbopowered.proxy.antibot.AntiBotService;
 import com.turbopowered.proxy.command.VelocityCommandManager;
 import com.turbopowered.proxy.command.builtin.CallbackCommand;
 import com.turbopowered.proxy.command.builtin.GlistCommand;
@@ -48,6 +49,7 @@ import com.turbopowered.proxy.command.builtin.ShutdownCommand;
 import com.turbopowered.proxy.command.builtin.VelocityCommand;
 import com.turbopowered.proxy.config.VelocityConfiguration;
 import com.turbopowered.proxy.connection.client.ConnectedPlayer;
+import com.turbopowered.proxy.util.metrics.MetricsService;
 import com.turbopowered.proxy.connection.player.resourcepack.VelocityResourcePackInfo;
 import com.turbopowered.proxy.connection.util.ServerListPingHandler;
 import com.turbopowered.proxy.console.VelocityConsole;
@@ -71,9 +73,15 @@ import com.turbopowered.proxy.util.ratelimit.Ratelimiter;
 import com.turbopowered.proxy.util.ratelimit.Ratelimiters;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
+import io.netty.channel.epoll.Epoll;
+import io.netty.channel.epoll.EpollServerSocketChannel;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
@@ -157,6 +165,8 @@ public class VelocityServer implements ProxyServer, ForwardingAudience {
   private final ConnectionManager cm;
   private final ProxyOptions options;
   private @MonotonicNonNull VelocityConfiguration configuration;
+  private @MonotonicNonNull AntiBotService antiBotService;
+  private @MonotonicNonNull MetricsService metricsService;
   private @MonotonicNonNull KeyPair serverKeyPair;
   private final ServerMap servers;
   private final VelocityCommandManager commandManager;
@@ -194,6 +204,14 @@ public class VelocityServer implements ProxyServer, ForwardingAudience {
   @Override
   public VelocityConfiguration getConfiguration() {
     return this.configuration;
+  }
+
+  public AntiBotService getAntiBotService() {
+    return this.antiBotService;
+  }
+
+  public MetricsService getMetricsService() {
+    return this.metricsService;
   }
 
   @Override
@@ -335,6 +353,10 @@ public class VelocityServer implements ProxyServer, ForwardingAudience {
       this.cm.queryBind(configuration.getBind().getHostString(), configuration.getQueryPort());
     }
 
+    if (configuration.getObservability().isEnabled()) {
+      startMetricsEndpoint();
+    }
+
     final String defaultPackage = new String(
         new byte[] { 'o', 'r', 'g', '.', 'b', 's', 't', 'a', 't', 's' });
     if (!MetricsBase.class.getPackage().getName().startsWith(defaultPackage)) {
@@ -406,6 +428,8 @@ public class VelocityServer implements ProxyServer, ForwardingAudience {
     try {
       Path configPath = Path.of("turbo.toml");
       configuration = VelocityConfiguration.read(configPath);
+      metricsService = new MetricsService();
+      antiBotService = new AntiBotService(configuration, metricsService);
 
       if (!configuration.validate()) {
         logger.error("Your configuration is invalid. Velocity will not start up until the errors "
@@ -672,7 +696,37 @@ public class VelocityServer implements ProxyServer, ForwardingAudience {
     shutdown(true);
   }
 
-  @Override
+  private void startMetricsEndpoint() {
+    int port = configuration.getObservability().getPort();
+    String path = configuration.getObservability().getPath();
+    logger.info("Starting native metrics endpoint on port {} at path {}", port, path);
+    
+    // Register base metrics
+    metricsService.gauge("proxy_players_online", this::getPlayerCount);
+    metricsService.gauge("jvm_memory_heap_used", () -> Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
+
+    ServerBootstrap bootstrap = new ServerBootstrap()
+        .group(this.cm.getBossGroup(), this.cm.getWorkerGroup())
+        .channel(Epoll.isAvailable() ? EpollServerSocketChannel.class : io.netty.channel.socket.nio.NioServerSocketChannel.class)
+        .childHandler(new ChannelInitializer<>() {
+          @Override
+          protected void initChannel(Channel ch) {
+            ch.pipeline().addLast(new io.netty.handler.codec.http.HttpServerCodec());
+            ch.pipeline().addLast(new com.turbopowered.proxy.network.handler.MetricsEndpointHandler(metricsService, path));
+          }
+        })
+        .childOption(ChannelOption.TCP_NODELAY, true)
+        .childOption(ChannelOption.SO_KEEPALIVE, true);
+
+    bootstrap.bind(port).addListener((ChannelFutureListener) future -> {
+      if (future.isSuccess()) {
+        logger.info("Metrics endpoint bound successfully.");
+      } else {
+        logger.error("Failed to bind metrics endpoint.", future.cause());
+      }
+    });
+  }
+
   public void closeListeners() {
     this.cm.closeEndpoints(false);
   }

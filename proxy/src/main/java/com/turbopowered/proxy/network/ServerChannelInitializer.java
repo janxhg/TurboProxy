@@ -28,6 +28,7 @@ import static com.turbopowered.proxy.network.Connections.READ_TIMEOUT;
 import com.turbopowered.proxy.VelocityServer;
 import com.turbopowered.proxy.connection.MinecraftConnection;
 import com.turbopowered.proxy.connection.client.HandshakeSessionHandler;
+import com.turbopowered.proxy.network.handler.AntiBotHandler;
 import com.turbopowered.proxy.protocol.ProtocolUtils;
 import com.turbopowered.proxy.protocol.StateRegistry;
 import com.turbopowered.proxy.protocol.netty.LegacyPingDecoder;
@@ -57,6 +58,7 @@ public class ServerChannelInitializer extends ChannelInitializer<Channel> {
   @Override
   protected void initChannel(final Channel ch) {
     ch.pipeline()
+        .addLast("antibot", new AntiBotHandler(this.server.getAntiBotService()))
         .addLast(LEGACY_PING_DECODER, new LegacyPingDecoder())
         .addLast(FRAME_DECODER, new MinecraftVarintFrameDecoder(ProtocolUtils.Direction.SERVERBOUND))
         .addLast(READ_TIMEOUT,

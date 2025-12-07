@@ -93,6 +93,71 @@ public class VelocityConfiguration implements ProxyConfig {
   private @Nullable Favicon favicon;
   @Expose
   private boolean forceKeyAuthentication = true; // Added in 1.19
+  @Expose
+  private final AntiBot antiBot;
+  @Expose
+  private final Observability observability;
+
+  /**
+   * Anti-Bot configuration.
+   */
+  public static class AntiBot {
+    @Expose
+    private boolean enabled = false;
+    @Expose
+    private int maxConnectionsPerIp = 5;
+    @Expose
+    private List<String> whitelist = ImmutableList.of();
+    @Expose
+    private List<String> blacklist = ImmutableList.of();
+    @Expose
+    private boolean challengeEnabled = false;
+    @Expose
+    private int challengeCooldown = 1000;
+    @Expose
+    private int challengeRepeat = 30000;
+
+    public AntiBot() {}
+
+    public AntiBot(boolean enabled, int maxConnectionsPerIp, List<String> whitelist, List<String> blacklist, boolean challengeEnabled, int challengeCooldown, int challengeRepeat) {
+      this.enabled = enabled;
+      this.maxConnectionsPerIp = maxConnectionsPerIp;
+      this.whitelist = whitelist;
+      this.blacklist = blacklist;
+      this.challengeEnabled = challengeEnabled;
+      this.challengeCooldown = challengeCooldown;
+      this.challengeRepeat = challengeRepeat;
+    }
+
+    public boolean isEnabled() { return enabled; }
+    public int getMaxConnectionsPerIp() { return maxConnectionsPerIp; }
+    public List<String> getWhitelist() { return whitelist; }
+    public List<String> getBlacklist() { return blacklist; }
+    public boolean isChallengeEnabled() { return challengeEnabled; }
+    public int getChallengeCooldown() { return challengeCooldown; }
+    public int getChallengeRepeat() { return challengeRepeat; }
+  }
+
+  public static class Observability {
+    @Expose
+    private boolean enabled = false;
+    @Expose
+    private int port = 30069;
+    @Expose
+    private String path = "/metrics";
+
+    public Observability() {}
+    
+    public Observability(boolean enabled, int port, String path) {
+      this.enabled = enabled;
+      this.port = port;
+      this.path = path;
+    }
+
+    public boolean isEnabled() { return enabled; }
+    public int getPort() { return port; }
+    public String getPath() { return path; }
+  }
 
   private VelocityConfiguration(Servers servers, ForcedHosts forcedHosts, Advanced advanced,
       Query query, Metrics metrics) {
@@ -101,6 +166,8 @@ public class VelocityConfiguration implements ProxyConfig {
     this.advanced = advanced;
     this.query = query;
     this.metrics = metrics;
+    this.antiBot = new AntiBot();
+    this.observability = new Observability();
   }
 
   private VelocityConfiguration(String bind, String motd, int showMaxPlayers, boolean onlineMode,
@@ -109,7 +176,7 @@ public class VelocityConfiguration implements ProxyConfig {
       boolean onlineModeKickExistingPlayers, PingPassthroughMode pingPassthrough,
       boolean samplePlayersInPing, boolean enablePlayerAddressLogging, Servers servers,
       ForcedHosts forcedHosts, Advanced advanced, Query query, Metrics metrics,
-      boolean forceKeyAuthentication) {
+      boolean forceKeyAuthentication, AntiBot antiBot, Observability observability) {
     this.bind = bind;
     this.motd = motd;
     this.showMaxPlayers = showMaxPlayers;
@@ -128,6 +195,8 @@ public class VelocityConfiguration implements ProxyConfig {
     this.query = query;
     this.metrics = metrics;
     this.forceKeyAuthentication = forceKeyAuthentication;
+    this.antiBot = antiBot;
+    this.observability = observability;
   }
 
   /**
@@ -449,6 +518,14 @@ public class VelocityConfiguration implements ProxyConfig {
     return advanced.isEnableReusePort();
   }
 
+  public AntiBot getAntiBot() {
+    return antiBot;
+  }
+
+  public Observability getObservability() {
+    return observability;
+  }
+
   @Override
   public String toString() {
     return MoreObjects.toStringHelper(this)
@@ -544,6 +621,8 @@ public class VelocityConfiguration implements ProxyConfig {
       final CommentedConfig advancedConfig = config.get("advanced");
       final CommentedConfig queryConfig = config.get("query");
       final CommentedConfig metricsConfig = config.get("metrics");
+      final CommentedConfig antiBotConfig = config.get("antibot");
+      final CommentedConfig observabilityConfig = config.get("observability");
       final PlayerInfoForwarding forwardingMode = config.getEnumOrElse(
               "player-info-forwarding-mode", PlayerInfoForwarding.NONE);
       final PingPassthroughMode pingPassthroughMode = config.getEnumOrElse("ping-passthrough",
@@ -588,7 +667,21 @@ public class VelocityConfiguration implements ProxyConfig {
               new Advanced(advancedConfig),
               new Query(queryConfig),
               new Metrics(metricsConfig),
-              forceKeyAuthentication
+              forceKeyAuthentication,
+              new AntiBot(
+                  antiBotConfig != null ? antiBotConfig.getOrElse("enabled", false) : false,
+                  antiBotConfig != null ? antiBotConfig.getIntOrElse("max-connections-per-ip", 5) : 5,
+                  antiBotConfig != null ? antiBotConfig.getOrElse("whitelist", ImmutableList.of()) : ImmutableList.of(),
+                  antiBotConfig != null ? antiBotConfig.getOrElse("blacklist", ImmutableList.of()) : ImmutableList.of(),
+                  antiBotConfig != null ? antiBotConfig.getOrElse("challenge-enabled", false) : false,
+                  antiBotConfig != null ? antiBotConfig.getIntOrElse("challenge-cooldown", 1000) : 1000,
+                  antiBotConfig != null ? antiBotConfig.getIntOrElse("challenge-repeat", 30000) : 30000
+              ),
+              new Observability(
+                  observabilityConfig != null ? observabilityConfig.getOrElse("enabled", false) : false,
+                  observabilityConfig != null ? observabilityConfig.getIntOrElse("port", 30069) : 30069,
+                  observabilityConfig != null ? observabilityConfig.getOrElse("path", "/metrics") : "/metrics"
+              )
       );
     }
   }
