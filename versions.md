@@ -1,5 +1,24 @@
 # TurboProxy Version History
 
+## 1.2.0 (2025-12-07)
+**"The Sentinel Update"**
+
+### 🛡️ Native Anti-Bot System
+*   **Connection Filtering**: Intelligent rate-limiting and connection tracking per IP.
+*   **Blacklist/Whitelist**: Hot-reloadable lists to instantly block or allow IPs.
+*   **Challenge Mode**: Native "Greylist" mechanism to verify legitimate non-bot connections (inspired by FlameCord/Aegis).
+
+### 📊 Advanced Observability
+*   **Prometheus Endpoint**: Built-in HTTP metrics server (`/metrics`) compatible with Prometheus/Grafana.
+*   **Metrics**:
+    *   `proxy_players_online`: Real-time player count.
+    *   `jvm_memory_heap_used`: Memory usage monitoring.
+    *   `antibot_blocked_connections`: Counter for total attacks mitigated.
+
+### 🛠 Fixes & Improvements
+*   **CI/CD**: Fixed GitHub Actions build for cross-platform compatibility.
+*   **Testing**: Added Unit Tests for Anti-Bot logic and Metrics service.
+
 ## 1.1.0 (2025-12-06)
 **"The Performance Update"**
 

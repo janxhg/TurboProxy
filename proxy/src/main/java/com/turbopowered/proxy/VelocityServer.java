@@ -712,6 +712,7 @@ public class VelocityServer implements ProxyServer, ForwardingAudience {
           @Override
           protected void initChannel(Channel ch) {
             ch.pipeline().addLast(new io.netty.handler.codec.http.HttpServerCodec());
+            ch.pipeline().addLast(new io.netty.handler.codec.http.HttpObjectAggregator(65536));
             ch.pipeline().addLast(new com.turbopowered.proxy.network.handler.MetricsEndpointHandler(metricsService, path));
           }
         })

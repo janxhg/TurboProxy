@@ -51,7 +51,7 @@ import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.turbopowered.natives.compression.Lz4VelocityCompressor;
+
 
 /**
  * Handles a player trying to log into the proxy.
@@ -138,7 +138,7 @@ public class LoginSessionHandler implements MinecraftSessionHandler {
 
   @Override
   public boolean handle(SetCompressionPacket packet) {
-    serverConn.ensureConnected().setCompressionThreshold(packet.getThreshold(), Lz4VelocityCompressor.FACTORY);
+    serverConn.ensureConnected().setCompressionThreshold(packet.getThreshold(), null);
     return true;
   }
 
