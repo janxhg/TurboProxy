@@ -15,19 +15,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.event;
+package com.velocitypowered.proxy.event;
 
-import static com.turbopowered.proxy.testutil.FakePluginManager.PLUGIN_A;
-import static com.turbopowered.proxy.testutil.FakePluginManager.PLUGIN_B;
+import static com.velocitypowered.proxy.testutil.FakePluginManager.PLUGIN_A;
+import static com.velocitypowered.proxy.testutil.FakePluginManager.PLUGIN_B;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-import com.turbopowered.api.event.EventHandler;
-import com.turbopowered.api.event.EventManager;
-import com.turbopowered.api.event.Subscribe;
-import com.turbopowered.api.plugin.PluginManager;
-import com.turbopowered.proxy.testutil.FakePluginManager;
+import com.velocitypowered.api.event.EventHandler;
+import com.velocitypowered.api.event.EventManager;
+import com.velocitypowered.api.event.Subscribe;
+import com.velocitypowered.api.plugin.PluginManager;
+import com.velocitypowered.proxy.testutil.FakePluginManager;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;

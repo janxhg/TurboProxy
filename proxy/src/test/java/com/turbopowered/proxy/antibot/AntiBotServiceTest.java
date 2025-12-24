@@ -1,12 +1,12 @@
-package com.turbopowered.proxy.antibot;
+package com.velocitypowered.proxy.antibot;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import com.turbopowered.proxy.config.VelocityConfiguration;
-import com.turbopowered.proxy.util.metrics.MetricsService;
+import com.velocitypowered.proxy.config.VelocityConfiguration;
+import com.velocitypowered.proxy.util.metrics.MetricsService;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Collections;

@@ -15,10 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.component;
+package com.velocitypowered.proxy.component;
 
-import com.turbopowered.api.network.ProtocolVersion;
-import com.turbopowered.proxy.protocol.packet.chat.ComponentHolder;
+import com.velocitypowered.api.network.ProtocolVersion;
+import com.velocitypowered.proxy.protocol.packet.chat.ComponentHolder;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.junit.jupiter.api.Test;

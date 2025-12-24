@@ -5,12 +5,12 @@
  * reference the LICENSE file in the api top-level directory.
  */
 
-package com.turbopowered.api.plugin.ap;
+package com.velocitypowered.api.plugin.ap;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
-import com.turbopowered.api.plugin.Plugin;
+import com.velocitypowered.api.plugin.Plugin;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
- * Serialized version of {@link com.turbopowered.api.plugin.PluginDescription}.
+ * Serialized version of {@link com.velocitypowered.api.plugin.PluginDescription}.
  */
 public final class SerializedPluginDescription {
 
@@ -54,7 +54,7 @@ public final class SerializedPluginDescription {
 
   static SerializedPluginDescription from(Plugin plugin, String qualifiedName) {
     List<Dependency> dependencies = new ArrayList<>();
-    for (com.turbopowered.api.plugin.Dependency dependency : plugin.dependencies()) {
+    for (com.velocitypowered.api.plugin.Dependency dependency : plugin.dependencies()) {
       dependencies.add(new Dependency(dependency.id(), dependency.optional()));
     }
     return new SerializedPluginDescription(plugin.id(), plugin.name(), plugin.version(),

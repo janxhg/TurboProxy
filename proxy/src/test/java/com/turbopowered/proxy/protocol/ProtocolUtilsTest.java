@@ -15,9 +15,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.protocol;
+package com.velocitypowered.proxy.protocol;
 
-import static com.turbopowered.proxy.protocol.ProtocolUtils.encode21BitVarInt;
+import static com.velocitypowered.proxy.protocol.ProtocolUtils.encode21BitVarInt;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

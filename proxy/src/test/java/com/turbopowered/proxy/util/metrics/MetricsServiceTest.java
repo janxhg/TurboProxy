@@ -1,4 +1,4 @@
-package com.turbopowered.proxy.util.metrics;
+package com.velocitypowered.proxy.util.metrics;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

@@ -15,14 +15,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.scheduler;
+package com.velocitypowered.proxy.scheduler;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.turbopowered.api.scheduler.ScheduledTask;
-import com.turbopowered.api.scheduler.TaskStatus;
-import com.turbopowered.proxy.scheduler.VelocityScheduler.VelocityTask;
-import com.turbopowered.proxy.testutil.FakePluginManager;
+import com.velocitypowered.api.scheduler.ScheduledTask;
+import com.velocitypowered.api.scheduler.TaskStatus;
+import com.velocitypowered.proxy.scheduler.VelocityScheduler.VelocityTask;
+import com.velocitypowered.proxy.testutil.FakePluginManager;
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;

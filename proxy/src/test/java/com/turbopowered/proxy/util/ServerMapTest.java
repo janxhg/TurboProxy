@@ -15,14 +15,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.util;
+package com.velocitypowered.proxy.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.turbopowered.api.proxy.server.RegisteredServer;
-import com.turbopowered.api.proxy.server.ServerInfo;
-import com.turbopowered.proxy.server.ServerMap;
+import com.velocitypowered.api.proxy.server.RegisteredServer;
+import com.velocitypowered.api.proxy.server.ServerInfo;
+import com.velocitypowered.proxy.server.ServerMap;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.Optional;

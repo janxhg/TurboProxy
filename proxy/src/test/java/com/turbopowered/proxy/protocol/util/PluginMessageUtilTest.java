@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.protocol.util;
+package com.velocitypowered.proxy.protocol.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

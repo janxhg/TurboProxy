@@ -9,7 +9,7 @@ plugins {
 }
 
 application {
-    mainClass.set("com.turbopowered.proxy.Velocity")
+    mainClass.set("com.velocitypowered.proxy.Velocity")
     applicationDefaultJvmArgs += listOf("-Dturbo.packet-decode-logging=true");
 }
 

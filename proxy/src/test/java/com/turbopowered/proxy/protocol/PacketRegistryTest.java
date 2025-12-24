@@ -15,29 +15,29 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.protocol;
+package com.velocitypowered.proxy.protocol;
 
 import static com.google.common.collect.Iterables.getLast;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_11;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_12;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_12_1;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_12_2;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_13;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_14;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_14_2;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_15;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_16;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_16_2;
-import static com.turbopowered.api.network.ProtocolVersion.MINECRAFT_1_8;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_11;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_12;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_12_1;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_12_2;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_13;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_14;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_14_2;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_15;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_16;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_16_2;
+import static com.velocitypowered.api.network.ProtocolVersion.MINECRAFT_1_8;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.turbopowered.api.network.ProtocolVersion;
-import com.turbopowered.proxy.protocol.packet.HandshakePacket;
-import com.turbopowered.proxy.protocol.packet.StatusPingPacket;
+import com.velocitypowered.api.network.ProtocolVersion;
+import com.velocitypowered.proxy.protocol.packet.HandshakePacket;
+import com.velocitypowered.proxy.protocol.packet.StatusPingPacket;
 import org.junit.jupiter.api.Test;
 
 class PacketRegistryTest {

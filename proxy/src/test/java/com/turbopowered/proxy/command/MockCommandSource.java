@@ -15,10 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.command;
+package com.velocitypowered.proxy.command;
 
-import com.turbopowered.api.command.CommandSource;
-import com.turbopowered.api.permission.Tristate;
+import com.velocitypowered.api.command.CommandSource;
+import com.velocitypowered.api.permission.Tristate;
 
 /**
  * A fake {@link CommandSource}.

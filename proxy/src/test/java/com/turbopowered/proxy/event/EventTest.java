@@ -15,18 +15,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.event;
+package com.velocitypowered.proxy.event;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.google.common.reflect.TypeToken;
-import com.turbopowered.api.event.AwaitingEventExecutor;
-import com.turbopowered.api.event.Continuation;
-import com.turbopowered.api.event.EventTask;
-import com.turbopowered.api.event.PostOrder;
-import com.turbopowered.api.event.Subscribe;
-import com.turbopowered.proxy.testutil.FakePluginManager;
+import com.velocitypowered.api.event.AwaitingEventExecutor;
+import com.velocitypowered.api.event.Continuation;
+import com.velocitypowered.api.event.EventTask;
+import com.velocitypowered.api.event.PostOrder;
+import com.velocitypowered.api.event.Subscribe;
+import com.velocitypowered.proxy.testutil.FakePluginManager;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.checkerframework.checker.nullness.qual.MonotonicNonNull;

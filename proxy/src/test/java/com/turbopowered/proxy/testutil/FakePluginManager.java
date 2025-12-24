@@ -15,14 +15,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.testutil;
+package com.velocitypowered.proxy.testutil;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.turbopowered.api.plugin.PluginContainer;
-import com.turbopowered.api.plugin.PluginDescription;
-import com.turbopowered.api.plugin.PluginManager;
-import com.turbopowered.proxy.plugin.virtual.VelocityVirtualPlugin;
+import com.velocitypowered.api.plugin.PluginContainer;
+import com.velocitypowered.api.plugin.PluginDescription;
+import com.velocitypowered.api.plugin.PluginManager;
+import com.velocitypowered.proxy.plugin.virtual.VelocityVirtualPlugin;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Optional;

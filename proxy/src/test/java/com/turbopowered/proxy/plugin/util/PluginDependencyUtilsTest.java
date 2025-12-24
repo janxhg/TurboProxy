@@ -15,15 +15,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.plugin.util;
+package com.velocitypowered.proxy.plugin.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.google.common.collect.ImmutableList;
-import com.turbopowered.api.plugin.PluginDescription;
-import com.turbopowered.api.plugin.meta.PluginDependency;
-import com.turbopowered.proxy.plugin.loader.VelocityPluginDescription;
+import com.velocitypowered.api.plugin.PluginDescription;
+import com.velocitypowered.api.plugin.meta.PluginDependency;
+import com.velocitypowered.proxy.plugin.loader.VelocityPluginDescription;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;

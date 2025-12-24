@@ -15,11 +15,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.plugin;
+package com.velocitypowered.proxy.plugin;
 
 import com.google.common.collect.ImmutableList;
-import com.turbopowered.api.plugin.PluginContainer;
-import com.turbopowered.api.plugin.PluginManager;
+import com.velocitypowered.api.plugin.PluginContainer;
+import com.velocitypowered.api.plugin.PluginManager;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Optional;

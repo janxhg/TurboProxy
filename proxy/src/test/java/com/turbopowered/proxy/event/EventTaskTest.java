@@ -15,12 +15,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.event;
+package com.velocitypowered.proxy.event;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.turbopowered.api.event.Continuation;
-import com.turbopowered.api.event.EventTask;
+import com.velocitypowered.api.event.Continuation;
+import com.velocitypowered.api.event.EventTask;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;

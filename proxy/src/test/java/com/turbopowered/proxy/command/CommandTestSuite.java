@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.command;
+package com.velocitypowered.proxy.command;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -24,12 +24,12 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import com.turbopowered.api.command.CommandSource;
-import com.turbopowered.api.permission.Tristate;
-import com.turbopowered.api.proxy.Player;
-import com.turbopowered.proxy.event.MockEventManager;
-import com.turbopowered.proxy.event.VelocityEventManager;
-import com.turbopowered.proxy.testutil.FakePluginManager;
+import com.velocitypowered.api.command.CommandSource;
+import com.velocitypowered.api.permission.Tristate;
+import com.velocitypowered.api.proxy.Player;
+import com.velocitypowered.proxy.event.MockEventManager;
+import com.velocitypowered.proxy.event.VelocityEventManager;
+import com.velocitypowered.proxy.testutil.FakePluginManager;
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.jupiter.api.BeforeAll;

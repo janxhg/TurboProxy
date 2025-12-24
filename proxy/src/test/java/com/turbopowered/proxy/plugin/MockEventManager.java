@@ -15,9 +15,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.turbopowered.proxy.plugin;
+package com.velocitypowered.proxy.plugin;
 
-import com.turbopowered.proxy.event.VelocityEventManager;
+import com.velocitypowered.proxy.event.VelocityEventManager;
 
 /**
  * A mock {@link VelocityEventManager}. Must be shutdown after use!
